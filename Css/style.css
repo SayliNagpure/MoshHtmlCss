@@ -2,6 +2,11 @@ html {
     font-size: 62.5%;
 }
 
+::selection {
+    background-color: var(--color-primary);
+    color: white
+}
+
 :root {
     --color-primary: #2584ff;
     --color-secondary: #00d9ff;
@@ -65,6 +70,7 @@ p {
 
     h3 {
         font-size: 2.4rem;
+        font-weight: 500;
     }
 }
 
@@ -127,7 +133,6 @@ p {
 
 .list {
     list-style: none;
-    color: var(--color-heading);
     padding-left: 0;
 }
 
@@ -142,6 +147,8 @@ p {
     list-style-image: url(../Images/tick.svg);
     padding-left: 3rem;
     margin-bottom: 1rem;
+    color: var(--color-heading);
+
 }
 
 .icon {
@@ -176,7 +183,7 @@ p {
 }
 
 .btn {
-    padding: 2rem 3rem;
+    padding: 2rem 4vw;
     border-radius: 40px;
     border: none;
     font-weight: 600;
@@ -279,6 +286,7 @@ p {
     border: 0;
     flex-grow: 1;
     padding: 1.5rem 2rem;
+    width:0 ;
 }
 
 .input-group .btn {
@@ -392,6 +400,7 @@ p {
 
 .media {
     display: flex;
+    margin-bottom: 4rem;
 }
 
 .media__title {
@@ -564,18 +573,20 @@ p {
     color: #7b858b;
 }
 
-.block--dark .block--heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
     color: white;
 }
 
 .block-skewed-rigth {
     padding-bottom: calc(var(--padding-vertical)+4rem);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
 }
 
 .block-skewed-left {
     padding-bottom: calc(var(--padding-vertical)+4rem);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 .container {
@@ -585,6 +596,7 @@ p {
 
 .block--header {
     text-align: center;
+    margin-bottom: 4rem;
 }
 
 .nav {
@@ -609,6 +621,8 @@ p {
 
 .nav--item>a {
     color: #d2d0db;
+    text-decoration: none;
+
 }
 
 .nav--item>a:hover {
@@ -657,9 +671,6 @@ p {
     width: 100%;
 }
 
-.hero {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
 
 @media screen and (min-width:768px) {
     .hero {
@@ -682,13 +693,14 @@ p {
 
 .block--domian--pricess {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 6rem);
     font-size: 2rem;
     font-weight: 600;
     justify-items: center;
     max-width: 700px;
     margin: 0 auto;
+    color: var(--color-heading);
 }
 
 @media screen and (min-width:768px) {
@@ -700,10 +712,127 @@ p {
 }
 
 .block--plan .grid {
-    gap:8rem 4rem;
+    gap: 8rem 4rem;
 }
 
 .block--plan .card {
     max-width: 500px;
     margin: 0 auto;
+}
+
+.feature__hrading {
+    margin: 1rem 0;
+}
+
+.feature {
+    gap: 4rem 2rem;
+    margin: 12rem 0;
+}
+
+.feature:first-of-type {
+    margin: 6rem;
+}
+
+.feature--images {
+    width: 100%;
+}
+
+@media screen and (min-width:768px) {
+    .feature:nth-of-type(even) .feature--Content {
+        order: 2;
+    }
+}
+
+.block-showcase__image>img {
+    width: 100%;
+}
+
+@media screen and (min-width:768px) {
+    .block--showcase .grid {
+        grid-template-columns: 50% 50%;
+    }
+
+    .block--showcase__image {
+        justify-self: end;
+    }
+
+    .block--showcase__image>img {
+        width: auto;
+        max-width: 700px;
+    }
+}
+
+.footer {
+    background-color: #232323;
+}
+
+.footer__section {
+    padding: 2rem;
+    border-bottom: 1px solid #323232;
+}
+
+.footer--heading {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.footer--brand {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.footer__copyright {
+    font-size: 2.1rem;
+    color: white;
+    opacity: .3;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #777;
+    transition: color 0.3s;
+}
+
+.footer a:hover{
+    color: white;
+}
+
+.footer__section .list{
+    margin: 0;
+}
+
+.footer__section img{
+    width: 100%;
+    max-width: 230px;
+}
+@media screen and (min-width:768px) {
+    .footer__sections{
+        grid-template-columns:  repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .footer .collaspable--chevron{
+        display: none;
+    }
+
+    .footer .collaspable--content{
+        opacity: 1;
+        max-height: 100%;
+    }
+
+    .footer--brand{
+        order: -1;
+        margin-top: 1rem;
+    }
+
+    .footer__copyright{
+        font-size: 1.5rem;
+    }
+
+    .footer__section{
+        border: 0;
+    }
+
+    .footer--heading{
+        font-size: 1rem;
+    }
 }
